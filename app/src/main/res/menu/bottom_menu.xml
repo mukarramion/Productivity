@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_notes"
+        android:icon="@drawable/ic_baseline_notes_24"
+        android:title="Notes"/>
+
+    <item
+        android:id="@+id/bottom_deadline"
+        android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:title="Deadline"/>
+
+    <item
+        android:id="@+id/bottom_suggestion"
+        android:icon="@drawable/ic_baseline_emoji_objects_24"
+        android:title="Suggestion"/>
+</menu>
