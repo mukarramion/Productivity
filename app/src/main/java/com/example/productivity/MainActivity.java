@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.productivity.databinding.ActivityMainBinding;
@@ -30,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.bottom_suggestion:
                     replaceFragment(new SuggestionFragment());
+                    break;
+                case R.id.bottom_logout:
+                    Intent intent=new Intent(this,LoginActivity.class);
+                    startActivity(intent);
                     break;
             }
 
