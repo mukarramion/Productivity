@@ -7,16 +7,21 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.productivity.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
+
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        mAuth = FirebaseAuth.getInstance();
         replaceFragment(new NotesFragment());
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -33,13 +38,20 @@ public class MainActivity extends AppCompatActivity {
                     replaceFragment(new SuggestionFragment());
                     break;
                 case R.id.bottom_logout:
-                    Intent intent=new Intent(this,LoginActivity.class);
-                    startActivity(intent);
+                    sendUserToNextActivity();
                     break;
             }
 
             return true;
         });
+    }
+
+    private void sendUserToNextActivity() {
+        mAuth.signOut();
+        Toast.makeText(this,"Logout Successful", Toast.LENGTH_SHORT).show();
+        Intent intent=new Intent(this,LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void replaceFragment(Fragment fragment){

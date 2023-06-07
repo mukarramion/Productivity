@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -45,11 +45,11 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/idUsername"/>
+                app:layout_constraintBottom_toTopOf="@id/idEmail"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/idUsername"
+                android:id="@+id/idEmail"
                 android:inputType="textEmailAddress"
                 android:padding="10dp"
                 android:textColor="@color/black"
@@ -57,57 +57,59 @@
                 android:hint="Enter Email"
                 android:textColorHint="#808080"
                 app:layout_constraintTop_toBottomOf="@id/Credentials_title"
-                app:layout_constraintBottom_toTopOf="@id/idPassword"
+                app:layout_constraintBottom_toTopOf="@id/idRPassword"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edittext_shape"
-                android:id="@+id/idPassword"
+                android:id="@+id/idRPassword"
                 android:textColor="@color/black"
                 android:inputType="textPassword"
                 android:padding="10dp"
                 android:hint="Enter Password"
                 android:textColorHint="#808080"
-                app:layout_constraintTop_toBottomOf="@id/idUsername"
+                app:layout_constraintTop_toBottomOf="@id/idEmail"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/idLogin"/>
-            <TextView
-                android:layout_width="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/idRConfirmPassword"/>
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/idForgotPassword"
-                android:text="Forgot Password?"
-                android:textColor="#808080"
-                android:textAlignment="center"
-                android:textSize="12dp"
-                android:padding="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/idPassword"
-                app:layout_constraintBottom_toTopOf="@id/idLogin"/>
+                android:background="@drawable/edittext_shape"
+                android:id="@+id/idRConfirmPassword"
+                android:textColor="@color/black"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:hint="Confirm Password"
+                android:textColorHint="#808080"
+                app:layout_constraintTop_toBottomOf="@id/idRPassword"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/idRegister"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/idLogin"
-                android:text="Login"
+                android:id="@+id/idRegister"
+                android:text="Register"
                 android:background="@drawable/edittext_shape"
-                app:layout_constraintTop_toBottomOf="@id/idForgotPassword"
-                app:layout_constraintBottom_toTopOf="@id/idCreate"
+                app:layout_constraintTop_toBottomOf="@id/idRConfirmPassword"
+                app:layout_constraintBottom_toTopOf="@id/idUser"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/idCreate"
-                android:text="New User? Create an account."
+                android:id="@+id/idUser"
+                android:text="Already have an account?"
                 android:textColor="#808080"
                 android:textAlignment="center"
                 android:textSize="12dp"
                 android:padding="5dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/idLogin"
+                app:layout_constraintTop_toBottomOf="@id/idRegister"
                 app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

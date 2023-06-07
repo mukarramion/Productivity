@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "93637308730",
+    "project_id": "productivity-4f474",
+    "storage_bucket": "productivity-4f474.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93637308730:android:da31e2a9e159b77ebea003",
+        "android_client_info": {
+          "package_name": "com.example.productivity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93637308730-vmahjjbrv8d83rk6an5h7bbkmauec0qj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBda3qrHjrw4usbGYEM2WaOAVQHVzc_TS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "93637308730-vmahjjbrv8d83rk6an5h7bbkmauec0qj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
