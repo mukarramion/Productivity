@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.27760416666666665" />
         <entry key="app/src/main/res/drawable/item_selector.xml" value="0.4661458333333333" />
         <entry key="app/src/main/res/font/font.xml" value="0.4728205128205128" />
+        <entry key="app/src/main/res/font/font_family.xml" value="0.27760416666666665" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.16131191432396252" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.28351449275362317" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.21603260869565216" />

@@ -8,6 +8,17 @@
     tools:context=".SuggestionFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:text="Suggestions"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:layout_gravity="left"/>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="200dp"

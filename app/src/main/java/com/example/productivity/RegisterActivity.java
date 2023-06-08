@@ -21,7 +21,6 @@ import com.google.firebase.auth.FirebaseUser;
 import org.w3c.dom.Text;
 
 public class RegisterActivity extends AppCompatActivity {
-    private TextView alreadyHaveAnAccount;
     private EditText inputEmail;
     private EditText inputPassword;
     private EditText inputConfirmPassword;
@@ -35,7 +34,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        alreadyHaveAnAccount = findViewById(R.id.idUser);
         inputEmail = findViewById(R.id.idEmail);
         inputPassword = findViewById(R.id.idRPassword);
         inputConfirmPassword = findViewById(R.id.idRConfirmPassword);
@@ -44,14 +42,6 @@ public class RegisterActivity extends AppCompatActivity {
         progressDialog.setContentView(R.layout.progress_dialog);
         progressDialog.setCancelable(false);
         mAuth = FirebaseAuth.getInstance();
-
-        alreadyHaveAnAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
-                finish();
-            }
-        });
 
         registenBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -36,10 +36,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Credentials_title"
-                android:textSize="16dp"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 android:padding="5dp"
-                android:text="Login Credentials"
+                android:text="Registration"
                 android:textColor="@color/black"
                 android:textAlignment="center"
                 app:layout_constraintTop_toTopOf="parent"
@@ -95,22 +95,9 @@
                 android:text="Register"
                 android:background="@drawable/edittext_shape"
                 app:layout_constraintTop_toBottomOf="@id/idRConfirmPassword"
-                app:layout_constraintBottom_toTopOf="@id/idUser"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/idUser"
-                android:text="Already have an account?"
-                android:textColor="#808080"
-                android:textAlignment="center"
-                android:textSize="12dp"
-                android:padding="5dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/idRegister"
-                app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
