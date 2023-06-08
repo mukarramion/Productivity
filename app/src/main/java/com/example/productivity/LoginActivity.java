@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private Dialog progressDialog;
 
     private FirebaseAuth mAuth;
+    public static final String SHARED_PREFS = "sharedPrefs";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setContentView(R.layout.progress_dialog_login);
         progressDialog.setCancelable(false);
         mAuth = FirebaseAuth.getInstance();
+        isLoggedIn();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +59,15 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
             }
         });
+    }
+
+    private void isLoggedIn() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        boolean loginStatus = sharedPreferences.getBoolean("isLoggedIn",false);
+        if(loginStatus){
+            sendUserToNextActivity();
+            Toast.makeText(LoginActivity.this,"Login Successful", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void verifyCredentials() {
@@ -82,6 +94,10 @@ public class LoginActivity extends AppCompatActivity {
                 public void onComplete(Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         progressDialog.dismiss();
+                        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean("isLoggedIn",true);
+                        editor.apply();
                         sendUserToNextActivity();
                         Toast.makeText(LoginActivity.this,"Login Successful", Toast.LENGTH_SHORT).show();
                     }
@@ -98,5 +114,6 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this,MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
     }
 }

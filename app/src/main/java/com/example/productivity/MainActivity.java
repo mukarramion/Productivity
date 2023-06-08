@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
 
     private FirebaseAuth mAuth;
+    public static final String SHARED_PREFS = "sharedPrefs";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void sendUserToNextActivity() {
         mAuth.signOut();
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isLoggedIn",false);
+        editor.apply();
         Toast.makeText(this,"Logout Successful", Toast.LENGTH_SHORT).show();
         Intent intent=new Intent(this,LoginActivity.class);
         startActivity(intent);
