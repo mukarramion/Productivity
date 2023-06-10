@@ -17,15 +17,15 @@ public class SuggestionTextAdapter extends RecyclerView.Adapter<SuggestionTextAd
 
     @Override
     public TextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_deadline, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_suggestion, parent,false);
         return new TextViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(TextViewHolder holder, int position) {
         TextModel textModel = textList.get(position);
-        holder.deadlineTitle.setText(textModel.getTitle());
-        holder.deadlineDescription.setText(textModel.getDescription());
+        holder.suggestionTitle.setText(textModel.getTitle());
+        holder.suggestionDescription.setText(textModel.getDescription());
     }
 
     @Override
@@ -35,12 +35,12 @@ public class SuggestionTextAdapter extends RecyclerView.Adapter<SuggestionTextAd
 
 
     public static class TextViewHolder extends RecyclerView.ViewHolder {
-        private TextView deadlineTitle;
-        private TextView deadlineDescription;
+        private TextView suggestionTitle;
+        private TextView suggestionDescription;
         public TextViewHolder(View itemView) {
             super(itemView);
-            deadlineTitle =  itemView.findViewById(R.id.deadline_title);
-            deadlineDescription = itemView.findViewById(R.id.deadline_date);
+            suggestionTitle =  itemView.findViewById(R.id.suggestion_title);
+            suggestionDescription = itemView.findViewById(R.id.suggestion_content);
         }
     }
 }
