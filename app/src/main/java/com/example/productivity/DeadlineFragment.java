@@ -1,12 +1,23 @@
 package com.example.productivity;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +25,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class DeadlineFragment extends Fragment {
+    private DatabaseReference textsRef;
+    private RecyclerView recyclerView;
+    private DeadlineTextAdapter textAdapter;
+    private List<TextModel> textList;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,16 +64,44 @@ public class DeadlineFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        textsRef = database.getReference("deadlines");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_deadline, container, false);
+        View view = inflater.inflate(R.layout.fragment_deadline,container,false);
+
+        recyclerView = view.findViewById(R.id.deadline_RV);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        textList = new ArrayList<>();
+        textAdapter = new DeadlineTextAdapter(textList);
+        recyclerView.setAdapter(textAdapter);
+
+        textsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                textList.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    TextModel textModel = dataSnapshot.getValue(TextModel.class);
+                    textList.add(textModel);
+                }
+                textAdapter.notifyItemInserted(textList.size());
+                recyclerView.scrollToPosition(textAdapter.getItemCount()-1);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Toast.makeText(getActivity(), "Failed to retrieve texts", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return view;
     }
 }

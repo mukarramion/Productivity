@@ -18,10 +18,13 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3351449275362319" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.28351449275362317" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.24739583333333334" />
+        <entry key="app/src/main/res/layout/deadline_item.xml" value="0.26145833333333335" />
         <entry key="app/src/main/res/layout/fragment_deadline.xml" value="0.3351449275362319" />
         <entry key="app/src/main/res/layout/fragment_notes.xml" value="0.3351449275362319" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25104166666666666" />
         <entry key="app/src/main/res/layout/fragment_suggestion.xml" value="0.3351449275362319" />
+        <entry key="app/src/main/res/layout/item_deadline.xml" value="0.4103030148035229" />
+        <entry key="app/src/main/res/layout/item_suggesstion.xml" value="0.24739583333333334" />
         <entry key="app/src/main/res/layout/progress_dialog.xml" value="0.28351449275362317" />
         <entry key="app/src/main/res/layout/progress_dialog_forgot.xml" value="0.28351449275362317" />
         <entry key="app/src/main/res/layout/progress_dialog_login.xml" value="0.26145833333333335" />

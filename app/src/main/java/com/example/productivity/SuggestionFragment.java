@@ -3,10 +3,22 @@ package com.example.productivity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +26,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class SuggestionFragment extends Fragment {
+    private DatabaseReference textsRef;
+    private RecyclerView recyclerView;
+    private SuggestionTextAdapter textAdapter;
+    private List<TextModel> textList;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,16 +65,44 @@ public class SuggestionFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        textsRef = database.getReference("suggestions");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_suggestion, container, false);
+        View view = inflater.inflate(R.layout.fragment_suggestion,container,false);
+
+        recyclerView = view.findViewById(R.id.suggestion_RV);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        textList = new ArrayList<>();
+        textAdapter = new SuggestionTextAdapter(textList);
+        recyclerView.setAdapter(textAdapter);
+
+        textsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                textList.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    TextModel textModel = dataSnapshot.getValue(TextModel.class);
+                    textList.add(textModel);
+                }
+                textAdapter.notifyItemInserted(textList.size());
+                recyclerView.scrollToPosition(textAdapter.getItemCount()-1);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Toast.makeText(getActivity(), "Failed to retrieve texts", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return view;
     }
 }

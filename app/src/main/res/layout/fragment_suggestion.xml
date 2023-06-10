@@ -3,60 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     tools:context=".SuggestionFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textStyle="bold"
-        android:layout_margin="10dp"
-        android:text="Suggestions"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:layout_gravity="left"/>
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/suggestion_header"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:text="Suggestions"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:layout_gravity="left"/>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        app:cardCornerRadius="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:cardElevation="10dp">
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/suggestion_title"
-                android:textSize="24dp"
-                android:padding="5dp"
-                android:text="Web Development Suggestion"
-                android:textColor="@color/black"
-                android:textAlignment="center"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/suggestion_content"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/suggestion_content"
-                android:textSize="18dp"
-                android:text="To learn more about Web Technologies go to MDN Web Docs"
-                android:textAlignment="center"
-                android:textColor="#808080"
-                app:layout_constraintTop_toBottomOf="@id/suggestion_title"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+            android:layout_below="@+id/suggestion_header"
+            android:orientation="vertical">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/suggestion_RV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </RelativeLayout>
 </FrameLayout>
