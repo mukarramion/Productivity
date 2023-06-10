@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this,"Logout Successful", Toast.LENGTH_SHORT).show();
         Intent intent=new Intent(this,LoginActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         finish();
     }
 
