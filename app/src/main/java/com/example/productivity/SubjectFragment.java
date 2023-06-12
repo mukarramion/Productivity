@@ -3,10 +3,13 @@ package com.example.productivity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -16,6 +19,7 @@ import android.widget.TextView;
  */
 public class SubjectFragment extends Fragment {
     private TextView textView;
+    private ImageView imageView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,6 +68,7 @@ public class SubjectFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_subject, container, false);
 
         textView = view.findViewById(R.id.subject_header);
+        imageView = view.findViewById(R.id.subject_back);
         Bundle bundle = getArguments();
         if (bundle != null) {
             String title = bundle.getString("title");
@@ -71,6 +76,16 @@ public class SubjectFragment extends Fragment {
             // Use the received text in your fragment as needed
             textView.setText(title);
         }
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NotesFragment notesFragment = new NotesFragment();
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frame_layout,notesFragment);
+                fragmentTransaction.commit();
+            }
+        });
 
         return view;
     }
