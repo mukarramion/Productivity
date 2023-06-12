@@ -7,6 +7,8 @@
         <entry key="app/src/main/res/drawable/button_shape.xml" value="0.27760416666666665" />
         <entry key="app/src/main/res/drawable/edittext_shape.xml" value="0.2671875" />
         <entry key="app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" value="0.2671875" />
+        <entry key="app/src/main/res/drawable/ic_baseline_folder_24.xml" value="0.4537037037037037" />
+        <entry key="app/src/main/res/drawable/ic_baseline_logout_24.xml" value="0.4537037037037037" />
         <entry key="app/src/main/res/drawable/ic_baseline_notes_24.xml" value="0.45897435897435895" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.27760416666666665" />
         <entry key="app/src/main/res/drawable/item_selector.xml" value="0.4661458333333333" />
@@ -18,12 +20,15 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3351449275362319" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.28351449275362317" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.24739583333333334" />
+        <entry key="app/src/main/res/layout/activity_subject.xml" value="0.26145833333333335" />
         <entry key="app/src/main/res/layout/deadline_item.xml" value="0.26145833333333335" />
         <entry key="app/src/main/res/layout/fragment_deadline.xml" value="0.3351449275362319" />
         <entry key="app/src/main/res/layout/fragment_notes.xml" value="0.3351449275362319" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/layout/fragment_subject.xml" value="0.26145833333333335" />
         <entry key="app/src/main/res/layout/fragment_suggestion.xml" value="0.3351449275362319" />
         <entry key="app/src/main/res/layout/item_deadline.xml" value="0.4103030148035229" />
+        <entry key="app/src/main/res/layout/item_notes.xml" value="0.2617753623188406" />
         <entry key="app/src/main/res/layout/item_suggesstion.xml" value="0.24739583333333334" />
         <entry key="app/src/main/res/layout/progress_dialog.xml" value="0.28351449275362317" />
         <entry key="app/src/main/res/layout/progress_dialog_forgot.xml" value="0.28351449275362317" />
