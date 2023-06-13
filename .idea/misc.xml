@@ -30,6 +30,7 @@
         <entry key="app/src/main/res/layout/fragment_suggestion.xml" value="0.3351449275362319" />
         <entry key="app/src/main/res/layout/item_deadline.xml" value="0.4103030148035229" />
         <entry key="app/src/main/res/layout/item_notes.xml" value="0.2617753623188406" />
+        <entry key="app/src/main/res/layout/item_pdf.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/item_suggesstion.xml" value="0.24739583333333334" />
         <entry key="app/src/main/res/layout/item_suggestion.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/progress_dialog.xml" value="0.28351449275362317" />
@@ -39,6 +40,7 @@
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.45" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.27760416666666665" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.27760416666666665" />
+        <entry key="app/src/main/res/xml/file_paths.xml" value="0.26145833333333335" />
       </map>
     </option>
   </component>
