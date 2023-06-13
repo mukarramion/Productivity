@@ -31,6 +31,7 @@
         <entry key="app/src/main/res/layout/item_deadline.xml" value="0.4103030148035229" />
         <entry key="app/src/main/res/layout/item_notes.xml" value="0.2617753623188406" />
         <entry key="app/src/main/res/layout/item_suggesstion.xml" value="0.24739583333333334" />
+        <entry key="app/src/main/res/layout/item_suggestion.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/progress_dialog.xml" value="0.28351449275362317" />
         <entry key="app/src/main/res/layout/progress_dialog_forgot.xml" value="0.28351449275362317" />
         <entry key="app/src/main/res/layout/progress_dialog_login.xml" value="0.26145833333333335" />

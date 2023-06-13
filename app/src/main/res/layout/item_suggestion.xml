@@ -15,6 +15,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/suggestion_title"
             android:textSize="24dp"
+            android:textStyle="bold"
             android:padding="5dp"
             android:layout_margin="5dp"
             android:textColor="@color/black"
