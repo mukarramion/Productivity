@@ -104,6 +104,14 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        pbot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),ChatBotActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 
