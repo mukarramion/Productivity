@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -92,7 +94,7 @@ public class ProfileFragment extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               sendUserToNextActivity();
+                showConfirmationDialog();
             }
         });
 
@@ -113,6 +115,27 @@ public class ProfileFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void showConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Confirmation")
+                .setMessage("Are you sure you want to Logout?")
+                .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // User clicked the Confirm button
+                        sendUserToNextActivity();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // User clicked the Cancel button
+                        dialog.dismiss();
+                    }
+                })
+                .show();
     }
 
     private void sendUserToNextActivity() {

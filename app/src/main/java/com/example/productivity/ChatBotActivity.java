@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,6 +30,7 @@ public class ChatBotActivity extends AppCompatActivity {
     private final String USER_KEY = "user";
     private ArrayList<ChatsModel> chatsModelArrayList;
     private ChatRVAdapter chatRVAdapter;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +39,20 @@ public class ChatBotActivity extends AppCompatActivity {
         chatsRV = findViewById(R.id.idRVChats);
         userMsgEdit = findViewById(R.id.idEditMessage);
         sendMsgFAB = findViewById(R.id.idFABSend);
+        imageView = findViewById(R.id.chatGPT_back);
         chatsModelArrayList = new ArrayList<>();
         chatsModelArrayList.add(new ChatsModel("Hello I'm OpenAI Assistant. I chat with people and help them using my A.I.",BOT_KEY));
         chatRVAdapter = new ChatRVAdapter(chatsModelArrayList, this);
         LinearLayoutManager manager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
         chatsRV.setLayoutManager(manager);
         chatsRV.setAdapter(chatRVAdapter);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         sendMsgFAB.setOnClickListener(new View.OnClickListener() {
             @Override
