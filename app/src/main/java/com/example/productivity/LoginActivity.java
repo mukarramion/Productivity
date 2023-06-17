@@ -97,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putBoolean("isLoggedIn",true);
+                        editor.putString("email",email);
                         editor.apply();
                         sendUserToNextActivity();
                         Toast.makeText(LoginActivity.this,"Login Successful", Toast.LENGTH_SHORT).show();
