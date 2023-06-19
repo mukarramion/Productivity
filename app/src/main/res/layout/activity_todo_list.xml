@@ -66,6 +66,7 @@
             android:padding="10dp"
             android:textColorHint="#808080"
             android:id="@+id/todo_EditMessage"
+            android:hint="Enter the Task"
             android:textColor="@color/black"
             android:layout_toLeftOf="@id/todo_FABAdd"
             android:fontFamily="@font/nunito"
