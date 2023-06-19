@@ -28,7 +28,7 @@ public class TodoListActivity extends AppCompatActivity {
     private EditText editText;
     private FloatingActionButton floatingActionButton;
     private ImageView imageView;
-    private static final String SHARED_PREFS_KEY = "MyTodoList";
+    private static final String SHARED_PREFS_KEY = "sharedPrefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

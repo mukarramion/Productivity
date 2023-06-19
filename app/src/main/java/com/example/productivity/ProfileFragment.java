@@ -152,6 +152,7 @@ public class ProfileFragment extends Fragment {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("isLoggedIn",false);
         editor.putString("email","");
+        editor.putString("todoList","");
         editor.apply();
         Toast.makeText(getActivity(),"Logout Successful", Toast.LENGTH_SHORT).show();
         Intent intent=new Intent(getActivity(),LoginActivity.class);

@@ -33,8 +33,20 @@
             android:layout_centerInParent="true"
             android:layout_toRightOf="@id/todoL_back"/>
     </RelativeLayout>
-    <androidx.recyclerview.widget.RecyclerView
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/todoL_RL"
+        android:id="@+id/todo_RTV"
+        android:padding="5dp"
+        android:text="Click on the task to delete/remove it"
+        android:textSize="16dp"
+        android:background="@color/white"
+        android:textColor="#808080"
+        android:textAlignment="center"
+        android:textStyle="italic"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/todo_RTV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
