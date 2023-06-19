@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Productivity">
         <activity
+            android:name=".TodoListActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChatBotActivity"
             android:exported="false" />
         <activity

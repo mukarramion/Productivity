@@ -106,10 +106,18 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        todo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),TodoListActivity.class);
+                startActivity(intent);
+            }
+        });
+
         pbot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(),ChatBotActivity.class);
+                Intent intent= new Intent(getActivity(),ChatBotActivity.class);
                 startActivity(intent);
             }
         });
