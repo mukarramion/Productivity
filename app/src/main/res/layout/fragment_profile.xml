@@ -38,7 +38,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:padding="25dp"
+                    android:padding="15dp"
                     android:id="@+id/profile_IV"
                     android:layout_alignParentLeft="true"
                     android:layout_centerInParent="true"
@@ -49,6 +49,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/profile_title"
                     android:textSize="20dp"
+                    android:text="email@educare.com"
                     android:padding="5dp"
                     android:textStyle="bold"
                     android:layout_margin="5dp"
